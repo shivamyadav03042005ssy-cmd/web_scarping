@@ -10,7 +10,6 @@ for x in range(1,2):#adjust the range according to the number of pages you want 
     response = requests.get(url)
     soup = b(response.text, "html.parser" )
     books = soup.find_all("h3")
-    print("page {} done".format(x))
     for book in books:
         url = "https://books.toscrape.com/catalogue/" + book.a["href"]
         response = requests.get(url)
@@ -26,4 +25,5 @@ for x in range(1,2):#adjust the range according to the number of pages you want 
                 writer.writerow(data)
         else :
             print("No title found for book at URL: {}".format(url))
+    print("page {} done".format(x))
         
