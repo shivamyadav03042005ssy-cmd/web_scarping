@@ -40,7 +40,6 @@ async def main ():
     page = await browser.get(url)
     await asyncio.sleep(50)
     print(await page.evaluate("document.title"))
-    print( await)
     html = await page.get_content()
     print(html[:500])
     input("enter to stop the browser:")
